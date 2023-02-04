@@ -24,7 +24,25 @@ class NotesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadNotes()
+        createDefaulNoteIfNeeded()
         collectionView.reloadData()
+    }
+    
+    func createDefaulNoteIfNeeded() {
+        if notes.isEmpty {
+            let font = UIFont.systemFont(ofSize: 20)
+            let title = "Note App"
+            let body = "Created By: Marin Aleksey"
+            let titleAttr = NSMutableAttributedString(string:  title)
+                titleAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: title.count))
+            let bodyAttr = NSMutableAttributedString(string:  body)
+                bodyAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: body.count))
+            let titleData = Convert.mutableAttributedStringToData(string: titleAttr)
+            let bodyData = Convert.mutableAttributedStringToData(string: bodyAttr)
+            let currentDate = Date()
+            let note = Note(id: UUID().uuidString , titleAtributed: titleData, bodyAtributed: bodyData,date: currentDate)
+            storageManager.saveNoteToUserDefaults(note: note, key: note.id, new: true)
+        }
     }
     
     func layout() -> UICollectionViewLayout {
@@ -92,13 +110,7 @@ extension NotesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let targetVC = MainNavigator.getVCFromMain(withIdentifier: NoteEditorViewController.className) as? NoteEditorViewController {
             let note = notes[indexPath.row]
-            //targetVC.headAtributed = note.titleAtributed
-            //targetVC.bodyAtributed = note.bodyAtributed
-            
-            //targetVC.noteId = note.id
             targetVC.note = note
-            //targetVC.head = note.title
-            //targetVC.body = note.title
             navigationController?.show(targetVC, sender: nil)
         }
     }
@@ -116,7 +128,6 @@ extension NotesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.className, for: indexPath) as? NoteCollectionViewCell {
             let note = notes[indexPath.row]
-//            cell.dropShadow(radius: CGFloat(5))
             cell.TitleLabel.text = Convert.dataToMutableAttributedString(data: note.titleAtributed).string
             cell.BodyLabel.attributedText = Convert.dataToMutableAttributedString(data: note.bodyAtributed)
             let dateFormatter = DateFormatter()

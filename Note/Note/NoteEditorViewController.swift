@@ -14,8 +14,8 @@ class NoteEditorViewController: UIViewController {
     
     var needToDelete = false
     var note: Note?
-    let defaultFontForTitle = UIFont(name: "Didot", size: 24)
-    let defaultFontForBody = UIFont(name: "Didot", size: 20)
+    let defaultFontForTitle = UIFont.systemFont(ofSize: 24)
+    let defaultFontForBody = UIFont.systemFont(ofSize: 20)
     var placeholder = "Title"
     let storageManager = ServiceLocator.notesStorageManager()
     var undoButton: UIBarButtonItem!
@@ -71,8 +71,8 @@ class NoteEditorViewController: UIViewController {
         BodyTextView.delegate = self
         imagePicker.delegate = self
         
-        attributedStringForDotInList = NSMutableAttributedString(string: "\u{2022}", attributes: [NSAttributedString.Key.font : defaultFontForBody])
-        attributedStringForNewLine = NSMutableAttributedString(string: "\n", attributes: [NSAttributedString.Key.font : defaultFontForBody])
+        attributedStringForDotInList = NSMutableAttributedString(string: "\u{2022}", attributes: [NSAttributedString.Key.font : defaultFontForBody as Any])
+        attributedStringForNewLine = NSMutableAttributedString(string: "\n", attributes: [NSAttributedString.Key.font : defaultFontForBody as Any])
         
         if let note = note {
             TitleTextView.attributedText = Convert.dataToMutableAttributedString(data: note.titleAtributed)
@@ -218,8 +218,8 @@ class NoteEditorViewController: UIViewController {
             selectedRange.length += 1
         }
         firstResponder.setAttributedString(attributedString: attributedString)
-        updateUndoButtons()
         firstResponder.selectedRange = selectedRange
+        updateUndoButtons()
     }
 
     @objc func openImagePicker(_ sender: UITapGestureRecognizer) {
@@ -266,8 +266,12 @@ class NoteEditorViewController: UIViewController {
             return
         }
         highlightedSector = firstResponder.selectedRange
+        firstResponder.selectedRange = NSRange(location: 0,length: 0)
+        firstResponder.selectedRange = highlightedSector
+        let attrString = firstResponder.attributedText.attributedSubstring(from: highlightedSector)
+        print(attrString)
         let font = firstResponder.font?.bold()
-        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font])
+        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font as Any])
         firstResponder.selectedRange = highlightedSector
     }
     
@@ -277,7 +281,7 @@ class NoteEditorViewController: UIViewController {
         }
         highlightedSector = firstResponder.selectedRange
         let font = firstResponder.font?.italic()
-        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font])
+        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font as Any])
         firstResponder.selectedRange = highlightedSector
     }
     
@@ -287,7 +291,7 @@ class NoteEditorViewController: UIViewController {
         }
         highlightedSector = firstResponder.selectedRange
         let font = firstResponder.font?.withSize(size)
-        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font])
+        applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font as Any])
         firstResponder.selectedRange = highlightedSector
     }
     
@@ -303,6 +307,7 @@ class NoteEditorViewController: UIViewController {
         guard let firstResponder = view.window?.firstResponder as? UITextView else {
             return
         }
+        
         undoButton.isEnabled = firstResponder.undoManager?.canUndo ?? false
         redoButton.isEnabled = firstResponder.undoManager?.canRedo ?? false
         
@@ -341,11 +346,9 @@ class NoteEditorViewController: UIViewController {
     
 
     func applyTextChanges(firstResponder: UITextView, highlightedSector: NSRange, attributes: [NSAttributedString.Key: Any]) {
-        firstResponder.selectedRange = highlightedSector
-        firstResponder.updateTextAttributes { _ in
-            return attributes
-        }
-        updateUndoButtons()
+        let myAttrString = NSMutableAttributedString(attributedString: firstResponder.attributedText)
+        myAttrString.addAttributes(attributes, range: highlightedSector)
+        firstResponder.setAttributedString(attributedString: myAttrString)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -525,7 +528,8 @@ extension UIFont {
     }
     
     func italic() -> UIFont {
-        applyTraits(traits: [.traitItalic], alreadyApplied: isItalic)
+        print(isItalic)
+        return applyTraits(traits: [.traitItalic], alreadyApplied: isItalic)
     }
     
     private func applyTraits(traits:UIFontDescriptor.SymbolicTraits, alreadyApplied: Bool) -> UIFont {
