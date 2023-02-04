@@ -48,6 +48,7 @@ extension StorageManager: NotesStorageManager {
         print(ids)
         var notes = [Note]()
         for id in ids {
+            //removeNoteFromUserDefaults(key: id)
             if let note = getNoteFromUserDefaults(key: id) {
                 notes.append(note)
             }

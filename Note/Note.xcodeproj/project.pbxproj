@@ -22,6 +22,8 @@
 		0E985035298A3EAB0043468C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985034298A3EAB0043468C /* ServiceLocator.swift */; };
 		0E985037298A3EBA0043468C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985036298A3EBA0043468C /* StorageManager.swift */; };
 		0E985039298A75730043468C /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985038298A75730043468C /* DesignableView.swift */; };
+		0E98503B298BB73D0043468C /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98503A298BB73C0043468C /* Convert.swift */; };
+		0E98503E298E948F0043468C /* UITextViewWithStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98503D298E948F0043468C /* UITextViewWithStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		0E985034298A3EAB0043468C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		0E985036298A3EBA0043468C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0E985038298A75730043468C /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		0E98503A298BB73C0043468C /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
+		0E98503D298E948F0043468C /* UITextViewWithStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +78,11 @@
 		0E98500D298A03180043468C /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				0E98503A298BB73C0043468C /* Convert.swift */,
 				0E98502B298A097E0043468C /* Extensions */,
 				0E985026298A08E30043468C /* NoteCollectionViewCell */,
 				0E985024298A06EB0043468C /* NotesViewController.swift */,
+				0E98503D298E948F0043468C /* UITextViewWithStack.swift */,
 				0E98502E298A1C090043468C /* NoteEditorViewController.swift */,
 				0E98500E298A03180043468C /* AppDelegate.swift */,
 				0E985010298A03180043468C /* SceneDelegate.swift */,
@@ -183,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E985025298A06EB0043468C /* NotesViewController.swift in Sources */,
+				0E98503B298BB73D0043468C /* Convert.swift in Sources */,
 				0E98502F298A1C090043468C /* NoteEditorViewController.swift in Sources */,
 				0E985037298A3EBA0043468C /* StorageManager.swift in Sources */,
 				0E98502D298A09A40043468C /* NSObject+ClassName.swift in Sources */,
@@ -193,6 +200,7 @@
 				0E985039298A75730043468C /* DesignableView.swift in Sources */,
 				0E985031298A20010043468C /* MainNavigator.swift in Sources */,
 				0E985011298A03180043468C /* SceneDelegate.swift in Sources */,
+				0E98503E298E948F0043468C /* UITextViewWithStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

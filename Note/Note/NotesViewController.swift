@@ -47,6 +47,7 @@ class NotesViewController: UIViewController {
     
     @objc func createNewNote(sender: AnyObject) {
         if let targetVC = MainNavigator.getVCFromMain(withIdentifier: NoteEditorViewController.className) as? NoteEditorViewController {
+            targetVC.note = nil
             navigationController?.show(targetVC, sender: nil)
         }
     }
@@ -55,12 +56,12 @@ class NotesViewController: UIViewController {
         let spacing: CGFloat = 10
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1)
+            heightDimension: .fractionalHeight(2)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalWidth(0.5)
+            heightDimension: .fractionalWidth(0.85)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -91,9 +92,13 @@ extension NotesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let targetVC = MainNavigator.getVCFromMain(withIdentifier: NoteEditorViewController.className) as? NoteEditorViewController {
             let note = notes[indexPath.row]
-            targetVC.noteId = note.id
-            targetVC.head = note.title
-            targetVC.body = note.body
+            //targetVC.headAtributed = note.titleAtributed
+            //targetVC.bodyAtributed = note.bodyAtributed
+            
+            //targetVC.noteId = note.id
+            targetVC.note = note
+            //targetVC.head = note.title
+            //targetVC.body = note.title
             navigationController?.show(targetVC, sender: nil)
         }
     }
@@ -111,10 +116,25 @@ extension NotesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.className, for: indexPath) as? NoteCollectionViewCell {
             let note = notes[indexPath.row]
-            cell.TitleLabel.text = note.title
-            cell.BodyLabel.text = note.body
+//            cell.dropShadow(radius: CGFloat(5))
+            cell.TitleLabel.text = Convert.dataToMutableAttributedString(data: note.titleAtributed).string
+            cell.BodyLabel.attributedText = Convert.dataToMutableAttributedString(data: note.bodyAtributed)
+            let dateFormatter = DateFormatter()
+                dateFormatter.timeStyle = .medium
+    
+            cell.DateLabel.text = "\(note.date.get(.day)).\(note.date.get(.month)).\(note.date.get(.year))"
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
     }
 }
