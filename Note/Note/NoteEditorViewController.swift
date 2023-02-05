@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteEditorViewController: UIViewController {
+class NoteEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var TitleTextView: UITextView!
     @IBOutlet weak var BodyTextView: UITextView!
@@ -63,6 +63,10 @@ class NoteEditorViewController: UIViewController {
         picker.delegate = self
         picker.dataSource = self
     }
+    
+    @IBAction func tapGestureRecogniser(_ sender: Any) {
+        self.view.firstResponder?.resignFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +74,10 @@ class NoteEditorViewController: UIViewController {
         TitleTextView.delegate = self
         BodyTextView.delegate = self
         imagePicker.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecogniser))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
         
         attributedStringForDotInList = NSMutableAttributedString(string: "\u{2022}", attributes: [NSAttributedString.Key.font : defaultFontForBody as Any])
         attributedStringForNewLine = NSMutableAttributedString(string: "\n", attributes: [NSAttributedString.Key.font : defaultFontForBody as Any])
@@ -104,6 +112,29 @@ class NoteEditorViewController: UIViewController {
             if picker.frame.origin.y == view.frame.height - 150 {
                 picker.frame.origin.y -= keyboardSize.height - 40
             }
+            
+            guard let firstResponder = view.window?.firstResponder as? UITextView else {
+                return
+            }
+            guard firstResponder == BodyTextView else {
+                return
+            }
+    
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard let cursorPosition = firstResponder.selectedTextRange?.start else {
+                    return
+                }
+                //print(firstResponder.frame.origin.y)
+                //print(firstResponder.frame.origin.y + firstResponder.caretRect(for: cursorPosition).origin.y)
+                //print(view.frame.height - keyboardSize.height) //270
+                let offset = firstResponder.frame.origin.y + firstResponder.caretRect(for: cursorPosition).origin.y - (self.view.frame.height - keyboardSize.height - 60 )
+                if offset > 0 {
+                    firstResponder.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
+                    firstResponder.contentInset = .init(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+                }
+            }
         }
     }
 
@@ -111,6 +142,12 @@ class NoteEditorViewController: UIViewController {
         if picker.frame.origin.y != view.frame.height - 150 {
             picker.frame.origin.y = view.frame.height - 150
         }
+        
+        guard let firstResponder = view.window?.firstResponder as? UITextView else {
+            return
+        }
+        firstResponder.contentInset = .zero
+        firstResponder.contentOffset = .zero
     }
     
     func configureToolbar() {
@@ -266,10 +303,6 @@ class NoteEditorViewController: UIViewController {
             return
         }
         highlightedSector = firstResponder.selectedRange
-        firstResponder.selectedRange = NSRange(location: 0,length: 0)
-        firstResponder.selectedRange = highlightedSector
-        let attrString = firstResponder.attributedText.attributedSubstring(from: highlightedSector)
-        print(attrString)
         let font = firstResponder.font?.bold()
         applyTextChanges(firstResponder: firstResponder, highlightedSector: highlightedSector, attributes: [NSAttributedString.Key.font: font as Any])
         firstResponder.selectedRange = highlightedSector
@@ -398,10 +431,13 @@ class NoteEditorViewController: UIViewController {
 
 extension NoteEditorViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if !TitleTextView.attributedText.string.isEmpty && TitleTextView.text == placeholder {
-            TitleTextView.attributedText = NSAttributedString("")
-            TitleTextView.textColor = UIColor.black
+        if textView == TitleTextView {
+            if !TitleTextView.attributedText.string.isEmpty && TitleTextView.text == placeholder {
+                TitleTextView.attributedText = NSAttributedString("")
+                TitleTextView.textColor = UIColor.black
+            }
         }
+        textView.becomeFirstResponder()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -413,9 +449,6 @@ extension NoteEditorViewController: UITextViewDelegate {
         guard textView.attributedText.string.count > 0 else {
             return true
         }
-//        if locationOfRowBeginning == 0 {
-//            locationOfRowBeginning -= 1
-//        }
         
         if locationOfRowBeginning == 0 || locationOfRowBeginning == textView.attributedText.string.count - 1 {
             locationOfRowBeginning -= 1
