@@ -24,25 +24,7 @@ class NotesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadNotes()
-        createDefaulNoteIfNeeded()
         collectionView.reloadData()
-    }
-    
-    func createDefaulNoteIfNeeded() {
-        if notes.isEmpty {
-            let font = UIFont.systemFont(ofSize: 20)
-            let title = "Note App"
-            let body = "Created By: Marin Aleksey"
-            let titleAttr = NSMutableAttributedString(string:  title)
-                titleAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: title.count))
-            let bodyAttr = NSMutableAttributedString(string:  body)
-                bodyAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: body.count))
-            let titleData = Convert.mutableAttributedStringToData(string: titleAttr)
-            let bodyData = Convert.mutableAttributedStringToData(string: bodyAttr)
-            let currentDate = Date()
-            let note = Note(id: UUID().uuidString , titleAtributed: titleData, bodyAtributed: bodyData,date: currentDate)
-            storageManager.saveNoteToUserDefaults(note: note, key: note.id, new: true)
-        }
     }
     
     func layout() -> UICollectionViewLayout {
@@ -57,10 +39,13 @@ class NotesViewController: UIViewController {
     }
     
     func addRightButtonToNavigationBar() {
-        let addButton: UIBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(createNewNote))
-        let infoImage = UIImage(systemName: "plus")
-        addButton.setBackgroundImage(infoImage, for: .normal, barMetrics: .default)
-        self.navigationItem.rightBarButtonItem = addButton
+        let icon = UIImage(systemName: "plus")
+        let iconSize = CGRect(origin: CGPoint.zero, size: CGSize(width: (icon?.size.width ?? 5) * 1.5 , height: (icon?.size.height ?? 5) * 1.5))
+        let iconButton = UIButton(frame: iconSize)
+        iconButton.setBackgroundImage(icon, for: .normal)
+        iconButton.addTarget(self, action: #selector(createNewNote), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: iconButton)
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     @objc func createNewNote(sender: AnyObject) {

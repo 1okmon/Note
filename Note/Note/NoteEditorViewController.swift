@@ -353,8 +353,11 @@ class NoteEditorViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         var new = false
+        if TitleTextView.text == placeholder && TitleTextView.attributedText.string == placeholder {
+            TitleTextView.text = ""
+        }
         
-        guard !needToDelete && !(BodyTextView.attributedText.string == "" && TitleTextView.attributedText.string == "") else {
+        guard !needToDelete && !(BodyTextView.attributedText.string == "" && TitleTextView.attributedText.string == "") || note != nil else {
             return
         }
         
@@ -364,9 +367,7 @@ class NoteEditorViewController: UIViewController {
         if note == nil {
             new = true
         }
-        if TitleTextView.text == placeholder && TitleTextView.attributedText.string == "" {
-            TitleTextView.text = ""
-        }
+        
         let note = Note(id: note?.id ?? UUID().uuidString , titleAtributed: titleData, bodyAtributed: bodyData,date: currentDate)
         storageManager.saveNoteToUserDefaults(note: note, key: note.id, new: new)
     }
@@ -412,11 +413,11 @@ extension NoteEditorViewController: UITextViewDelegate {
         guard textView.attributedText.string.count > 0 else {
             return true
         }
-        if locationOfRowBeginning == 0 {
-            locationOfRowBeginning -= 1
-        }
+//        if locationOfRowBeginning == 0 {
+//            locationOfRowBeginning -= 1
+//        }
         
-        if locationOfRowBeginning == textView.attributedText.string.count - 1 {
+        if locationOfRowBeginning == 0 || locationOfRowBeginning == textView.attributedText.string.count - 1 {
             locationOfRowBeginning -= 1
         }
 

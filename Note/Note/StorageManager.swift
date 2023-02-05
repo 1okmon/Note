@@ -7,11 +7,20 @@
 import Foundation
 import UIKit
 
+enum StorageManagerKey: String, CaseIterable {
+    case notFirstLaunch
+}
+
 protocol NotesStorageManager {
     func saveNoteToUserDefaults(note: Note, key: String, new: Bool?)
     func removeNoteFromUserDefaults(key: String)
     func getNoteFromUserDefaults(key: String) -> Note?
     func getAllNotesFromUserDefaults() -> [Note]
+}
+
+protocol FirstLaunchStorageManager {
+    func saveBoolToUserDefaults(bool: Bool, key: StorageManagerKey)
+    func getBoolFromUserDefaults(key: StorageManagerKey) -> Bool
 }
 
 extension StorageManager: NotesStorageManager {
@@ -54,6 +63,15 @@ extension StorageManager: NotesStorageManager {
             }
         }
         return notes
+    }
+}
+
+extension StorageManager: FirstLaunchStorageManager {
+    func saveBoolToUserDefaults(bool: Bool, key: StorageManagerKey) {
+        UserDefaults.standard.set(bool, forKey: key.rawValue)
+    }
+    func getBoolFromUserDefaults(key: StorageManagerKey) -> Bool {
+        UserDefaults.standard.bool(forKey: key.rawValue)
     }
 }
 
