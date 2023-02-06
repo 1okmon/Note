@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 struct MainNavigator {
     static func getVCFromMain(withIdentifier: String) -> UIViewController {
         let storyBoard = UIStoryboard(

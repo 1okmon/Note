@@ -1,12 +1,11 @@
 //
 //  StorageManager.swift
-//  School
+//  Note
 //
-//  Created by 1okmon on 14.05.2022.
+//  Created by 1okmon on 01.02.2023.
 //
 import Foundation
 import UIKit
-
 enum StorageManagerKey: String, CaseIterable {
     case notFirstLaunch
 }
@@ -21,6 +20,7 @@ protocol NotesStorageManager {
 protocol FirstLaunchStorageManager {
     func saveBoolToUserDefaults(bool: Bool, key: StorageManagerKey)
     func getBoolFromUserDefaults(key: StorageManagerKey) -> Bool
+    func saveNoteToUserDefaults(note: Note, key: String, new: Bool?)
 }
 
 extension StorageManager: NotesStorageManager {
@@ -47,7 +47,6 @@ extension StorageManager: NotesStorageManager {
             let note = try? PropertyListDecoder().decode(Note.self, from: data)
             return note
         }
-        
         return nil
     }
     
@@ -57,7 +56,6 @@ extension StorageManager: NotesStorageManager {
         print(ids)
         var notes = [Note]()
         for id in ids {
-            //removeNoteFromUserDefaults(key: id)
             if let note = getNoteFromUserDefaults(key: id) {
                 notes.append(note)
             }
@@ -70,6 +68,7 @@ extension StorageManager: FirstLaunchStorageManager {
     func saveBoolToUserDefaults(bool: Bool, key: StorageManagerKey) {
         UserDefaults.standard.set(bool, forKey: key.rawValue)
     }
+    
     func getBoolFromUserDefaults(key: StorageManagerKey) -> Bool {
         UserDefaults.standard.bool(forKey: key.rawValue)
     }

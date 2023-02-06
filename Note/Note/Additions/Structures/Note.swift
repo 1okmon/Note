@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 struct Note: Codable {
     var id: String
     //var title: String
@@ -15,4 +14,3 @@ struct Note: Codable {
     var bodyAtributed: Data
     var date: Date
 }
-

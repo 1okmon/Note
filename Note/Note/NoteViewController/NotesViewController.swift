@@ -4,9 +4,7 @@
 //
 //  Created by 1okmon on 01.02.2023.
 //
-
 import UIKit
-
 class NotesViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var notes = [Note]()
@@ -100,8 +98,8 @@ extension NotesViewController: UICollectionViewDelegate {
         }
     }
 }
+
 extension NotesViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         notes.count
     }
@@ -113,11 +111,10 @@ extension NotesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.className, for: indexPath) as? NoteCollectionViewCell {
             let note = notes[indexPath.row]
-            cell.TitleLabel.text = Convert.dataToMutableAttributedString(data: note.titleAtributed).string
-            cell.BodyLabel.attributedText = Convert.dataToMutableAttributedString(data: note.bodyAtributed)
+            cell.TitleLabel.text = Convertor.dataToMutableAttributedString(data: note.titleAtributed).string
+            cell.BodyLabel.attributedText = Convertor.dataToMutableAttributedString(data: note.bodyAtributed)
             let dateFormatter = DateFormatter()
                 dateFormatter.timeStyle = .medium
-    
             cell.DateLabel.text = "\(note.date.get(.day)).\(note.date.get(.month)).\(note.date.get(.year))"
             return cell
         }

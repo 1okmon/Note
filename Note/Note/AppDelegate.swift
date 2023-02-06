@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let storageManager = StorageManager()
+        let storageManager = ServiceLocator.firstAppLaunch()
         if !storageManager.getBoolFromUserDefaults(key: .notFirstLaunch) {
             createDefaulNote(storageManager: storageManager)
             storageManager.saveBoolToUserDefaults(bool: true, key: .notFirstLaunch)
@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func createDefaulNote(storageManager: StorageManager) {
+    func createDefaulNote(storageManager: FirstLaunchStorageManager) {
         let font = UIFont.systemFont(ofSize: 20)
         let title = "Note App"
-        let body = "Created By: Marin Aleksey"
+        let body = "Created By Marin Aleksey"
         let titleAttr = NSMutableAttributedString(string:  title)
         titleAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: title.count))
         let bodyAttr = NSMutableAttributedString(string:  body)
         bodyAttr.addAttributes([NSAttributedString.Key.font : font], range: NSRange(location: 0,length: body.count))
-        let titleData = Convert.mutableAttributedStringToData(string: titleAttr)
-        let bodyData = Convert.mutableAttributedStringToData(string: bodyAttr)
+        let titleData = Convertor.mutableAttributedStringToData(string: titleAttr)
+        let bodyData = Convertor.mutableAttributedStringToData(string: bodyAttr)
         let currentDate = Date()
         let note = Note(id: UUID().uuidString , titleAtributed: titleData, bodyAtributed: bodyData,date: currentDate)
         storageManager.saveNoteToUserDefaults(note: note, key: note.id, new: true)

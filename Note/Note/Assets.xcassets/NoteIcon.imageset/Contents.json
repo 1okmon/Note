@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "colorpick.png",
+      "filename" : "icons8-notes-100.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8-notes-200(@2x).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-notes-300(@3x).png",
       "idiom" : "universal",
       "scale" : "3x"
     }

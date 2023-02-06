@@ -32,48 +32,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView multipleTouchEnabled="YES" contentMode="center" alwaysBounceVertical="YES" textAlignment="center" allowsEditingTextAttributes="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaF-I4-E2T">
-                                <rect key="frame" x="0.0" y="44" width="414" height="59"/>
+                            <textView multipleTouchEnabled="YES" contentMode="center" contentInsetAdjustmentBehavior="scrollableAxes" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaF-I4-E2T">
+                                <rect key="frame" x="0.0" y="54" width="414" height="59"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="KIi-3v-bJl"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="integer">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="point">
-                                        <point key="value" x="0.0" y="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="rect" keyPath="rect">
-                                        <rect key="value" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="9"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="9"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WS-ni-Bb5">
-                                <rect key="frame" x="0.0" y="119" width="414" height="727"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WS-ni-Bb5">
+                                <rect key="frame" x="0.0" y="129" width="414" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -81,7 +51,7 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="Xbd-rK-JP4" firstAttribute="trailing" secondItem="UaF-I4-E2T" secondAttribute="trailing" id="08G-AZ-Ng5"/>
-                            <constraint firstItem="UaF-I4-E2T" firstAttribute="top" secondItem="Xbd-rK-JP4" secondAttribute="top" id="RUC-2F-YpJ"/>
+                            <constraint firstItem="UaF-I4-E2T" firstAttribute="top" secondItem="Xbd-rK-JP4" secondAttribute="top" constant="10" id="RUC-2F-YpJ"/>
                             <constraint firstItem="7WS-ni-Bb5" firstAttribute="top" secondItem="UaF-I4-E2T" secondAttribute="bottom" constant="16" id="TLs-Ho-ZLv"/>
                             <constraint firstItem="7WS-ni-Bb5" firstAttribute="leading" secondItem="Xbd-rK-JP4" secondAttribute="leading" id="TRs-G8-9ly"/>
                             <constraint firstItem="UaF-I4-E2T" firstAttribute="leading" secondItem="Xbd-rK-JP4" secondAttribute="leading" id="fuO-Ax-L2t"/>

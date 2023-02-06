@@ -21,7 +21,23 @@
 		0E985033298A3B710043468C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985032298A3B710043468C /* Note.swift */; };
 		0E985035298A3EAB0043468C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985034298A3EAB0043468C /* ServiceLocator.swift */; };
 		0E985037298A3EBA0043468C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985036298A3EBA0043468C /* StorageManager.swift */; };
-		0E98503B298BB73D0043468C /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98503A298BB73C0043468C /* Convert.swift */; };
+		0E98503B298BB73D0043468C /* Convertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98503A298BB73C0043468C /* Convertor.swift */; };
+		0E985040298F98160043468C /* NoteEditorViewController+BarButtonForColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98503F298F98160043468C /* NoteEditorViewController+BarButtonForColorPicker.swift */; };
+		0E985042298FA5130043468C /* NoteEditorViewController+BarButtonForList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985041298FA5130043468C /* NoteEditorViewController+BarButtonForList.swift */; };
+		0E985046298FA8110043468C /* UITextView+RegistrationForUndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985045298FA8110043468C /* UITextView+RegistrationForUndoManager.swift */; };
+		0E985049298FA8960043468C /* UITextView+GetRowBeginning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985048298FA8960043468C /* UITextView+GetRowBeginning.swift */; };
+		0E98504C298FA96F0043468C /* NSAttributedString+Insert+Overload'+'.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98504B298FA96F0043468C /* NSAttributedString+Insert+Overload'+'.swift */; };
+		0E98504F298FA9C90043468C /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98504E298FA9C90043468C /* UIImage+Scale.swift */; };
+		0E985052298FAA280043468C /* UIFont+Bold+Italic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985051298FAA280043468C /* UIFont+Bold+Italic.swift */; };
+		0E985055298FAA9D0043468C /* UIView+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985054298FAA9D0043468C /* UIView+FirstResponder.swift */; };
+		0E985057298FAAB00043468C /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985056298FAAB00043468C /* UIView+shadow.swift */; };
+		0E985059298FAB390043468C /* NoteEditorViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985058298FAB390043468C /* NoteEditorViewController+ImagePicker.swift */; };
+		0E98505B298FAB5E0043468C /* NoteEditorViewController+FontSizePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98505A298FAB5E0043468C /* NoteEditorViewController+FontSizePickerView.swift */; };
+		0E98505D298FAEE60043468C /* NoteEditorViewController+FontAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98505C298FAEE60043468C /* NoteEditorViewController+FontAttributes.swift */; };
+		0E98505F298FB1690043468C /* NoteEditorViewController+Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98505E298FB1690043468C /* NoteEditorViewController+Undo.swift */; };
+		0E985061298FB3530043468C /* NoteEditorViewController+TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985060298FB3530043468C /* NoteEditorViewController+TextViewDelegate.swift */; };
+		0E985063298FB5870043468C /* NoteEditorViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985062298FB5870043468C /* NoteEditorViewController+Keyboard.swift */; };
+		0E985065298FB71B0043468C /* NoteEditorViewController+DeleteTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E985064298FB71B0043468C /* NoteEditorViewController+DeleteTabBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +57,23 @@
 		0E985032298A3B710043468C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0E985034298A3EAB0043468C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		0E985036298A3EBA0043468C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		0E98503A298BB73C0043468C /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
+		0E98503A298BB73C0043468C /* Convertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertor.swift; sourceTree = "<group>"; };
+		0E98503F298F98160043468C /* NoteEditorViewController+BarButtonForColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+BarButtonForColorPicker.swift"; sourceTree = "<group>"; };
+		0E985041298FA5130043468C /* NoteEditorViewController+BarButtonForList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+BarButtonForList.swift"; sourceTree = "<group>"; };
+		0E985045298FA8110043468C /* UITextView+RegistrationForUndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+RegistrationForUndoManager.swift"; sourceTree = "<group>"; };
+		0E985048298FA8960043468C /* UITextView+GetRowBeginning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+GetRowBeginning.swift"; sourceTree = "<group>"; };
+		0E98504B298FA96F0043468C /* NSAttributedString+Insert+Overload'+'.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Insert+Overload'+'.swift"; sourceTree = "<group>"; };
+		0E98504E298FA9C90043468C /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
+		0E985051298FAA280043468C /* UIFont+Bold+Italic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Bold+Italic.swift"; sourceTree = "<group>"; };
+		0E985054298FAA9D0043468C /* UIView+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FirstResponder.swift"; sourceTree = "<group>"; };
+		0E985056298FAAB00043468C /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
+		0E985058298FAB390043468C /* NoteEditorViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+ImagePicker.swift"; sourceTree = "<group>"; };
+		0E98505A298FAB5E0043468C /* NoteEditorViewController+FontSizePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+FontSizePickerView.swift"; sourceTree = "<group>"; };
+		0E98505C298FAEE60043468C /* NoteEditorViewController+FontAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+FontAttributes.swift"; sourceTree = "<group>"; };
+		0E98505E298FB1690043468C /* NoteEditorViewController+Undo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+Undo.swift"; sourceTree = "<group>"; };
+		0E985060298FB3530043468C /* NoteEditorViewController+TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+TextViewDelegate.swift"; sourceTree = "<group>"; };
+		0E985062298FB5870043468C /* NoteEditorViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		0E985064298FB71B0043468C /* NoteEditorViewController+DeleteTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditorViewController+DeleteTabBarButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,21 +106,17 @@
 		0E98500D298A03180043468C /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				0E98503A298BB73C0043468C /* Convert.swift */,
-				0E98502B298A097E0043468C /* Extensions */,
-				0E985026298A08E30043468C /* NoteCollectionViewCell */,
-				0E985024298A06EB0043468C /* NotesViewController.swift */,
-				0E98502E298A1C090043468C /* NoteEditorViewController.swift */,
+				0E98506A298FE8E30043468C /* Additions */,
+				0E985068298FE8830043468C /* Services */,
+				0E985067298FE8620043468C /* NoteEditorViewController */,
+				0E985066298FE83B0043468C /* NoteViewController */,
+				0E985043298FA7D50043468C /* Extensions */,
 				0E98500E298A03180043468C /* AppDelegate.swift */,
 				0E985010298A03180043468C /* SceneDelegate.swift */,
 				0E985014298A03180043468C /* Main.storyboard */,
-				0E985030298A20010043468C /* MainNavigator.swift */,
 				0E985017298A031A0043468C /* Assets.xcassets */,
 				0E985019298A031A0043468C /* LaunchScreen.storyboard */,
 				0E98501C298A031A0043468C /* Info.plist */,
-				0E985032298A3B710043468C /* Note.swift */,
-				0E985034298A3EAB0043468C /* ServiceLocator.swift */,
-				0E985036298A3EBA0043468C /* StorageManager.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -102,12 +130,144 @@
 			path = NoteCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		0E98502B298A097E0043468C /* Extensions */ = {
+		0E985043298FA7D50043468C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0E98506B298FE8FC0043468C /* NSObject */,
+				0E985053298FAA7E0043468C /* UIView */,
+				0E985050298FAA070043468C /* UIFont */,
+				0E98504D298FA9990043468C /* UIImage */,
+				0E98504A298FA91B0043468C /* NSAttributedString */,
+				0E985047298FA81A0043468C /* NoteEditorViewController */,
+				0E985044298FA7E90043468C /* UITextView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0E985044298FA7E90043468C /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				0E985045298FA8110043468C /* UITextView+RegistrationForUndoManager.swift */,
+				0E985048298FA8960043468C /* UITextView+GetRowBeginning.swift */,
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		0E985047298FA81A0043468C /* NoteEditorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E98503F298F98160043468C /* NoteEditorViewController+BarButtonForColorPicker.swift */,
+				0E985041298FA5130043468C /* NoteEditorViewController+BarButtonForList.swift */,
+				0E985058298FAB390043468C /* NoteEditorViewController+ImagePicker.swift */,
+				0E98505A298FAB5E0043468C /* NoteEditorViewController+FontSizePickerView.swift */,
+				0E98505C298FAEE60043468C /* NoteEditorViewController+FontAttributes.swift */,
+				0E98505E298FB1690043468C /* NoteEditorViewController+Undo.swift */,
+				0E985060298FB3530043468C /* NoteEditorViewController+TextViewDelegate.swift */,
+				0E985062298FB5870043468C /* NoteEditorViewController+Keyboard.swift */,
+				0E985064298FB71B0043468C /* NoteEditorViewController+DeleteTabBarButton.swift */,
+			);
+			path = NoteEditorViewController;
+			sourceTree = "<group>";
+		};
+		0E98504A298FA91B0043468C /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				0E98504B298FA96F0043468C /* NSAttributedString+Insert+Overload'+'.swift */,
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		0E98504D298FA9990043468C /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				0E98504E298FA9C90043468C /* UIImage+Scale.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		0E985050298FAA070043468C /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				0E985051298FAA280043468C /* UIFont+Bold+Italic.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		0E985053298FAA7E0043468C /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				0E985054298FAA9D0043468C /* UIView+FirstResponder.swift */,
+				0E985056298FAAB00043468C /* UIView+shadow.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		0E985066298FE83B0043468C /* NoteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E985026298A08E30043468C /* NoteCollectionViewCell */,
+				0E985024298A06EB0043468C /* NotesViewController.swift */,
+			);
+			path = NoteViewController;
+			sourceTree = "<group>";
+		};
+		0E985067298FE8620043468C /* NoteEditorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E98502E298A1C090043468C /* NoteEditorViewController.swift */,
+			);
+			path = NoteEditorViewController;
+			sourceTree = "<group>";
+		};
+		0E985068298FE8830043468C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0E985034298A3EAB0043468C /* ServiceLocator.swift */,
+				0E985069298FE8AD0043468C /* StorageManager */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0E985069298FE8AD0043468C /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				0E985036298A3EBA0043468C /* StorageManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		0E98506A298FE8E30043468C /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				0E98506D298FE9480043468C /* Structures */,
+				0E98506C298FE93D0043468C /* Classes */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		0E98506B298FE8FC0043468C /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
 				0E98502C298A09A40043468C /* NSObject+ClassName.swift */,
 			);
-			path = Extensions;
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		0E98506C298FE93D0043468C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0E98503A298BB73C0043468C /* Convertor.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0E98506D298FE9480043468C /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				0E985032298A3B710043468C /* Note.swift */,
+				0E985030298A20010043468C /* MainNavigator.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,15 +342,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E985059298FAB390043468C /* NoteEditorViewController+ImagePicker.swift in Sources */,
 				0E985025298A06EB0043468C /* NotesViewController.swift in Sources */,
-				0E98503B298BB73D0043468C /* Convert.swift in Sources */,
+				0E98503B298BB73D0043468C /* Convertor.swift in Sources */,
+				0E985055298FAA9D0043468C /* UIView+FirstResponder.swift in Sources */,
 				0E98502F298A1C090043468C /* NoteEditorViewController.swift in Sources */,
+				0E985042298FA5130043468C /* NoteEditorViewController+BarButtonForList.swift in Sources */,
 				0E985037298A3EBA0043468C /* StorageManager.swift in Sources */,
 				0E98502D298A09A40043468C /* NSObject+ClassName.swift in Sources */,
+				0E98504F298FA9C90043468C /* UIImage+Scale.swift in Sources */,
+				0E985057298FAAB00043468C /* UIView+shadow.swift in Sources */,
+				0E985063298FB5870043468C /* NoteEditorViewController+Keyboard.swift in Sources */,
+				0E985052298FAA280043468C /* UIFont+Bold+Italic.swift in Sources */,
+				0E98504C298FA96F0043468C /* NSAttributedString+Insert+Overload'+'.swift in Sources */,
 				0E985029298A09260043468C /* NoteCollectionViewCell.swift in Sources */,
+				0E98505D298FAEE60043468C /* NoteEditorViewController+FontAttributes.swift in Sources */,
 				0E985033298A3B710043468C /* Note.swift in Sources */,
+				0E985049298FA8960043468C /* UITextView+GetRowBeginning.swift in Sources */,
 				0E985035298A3EAB0043468C /* ServiceLocator.swift in Sources */,
+				0E985046298FA8110043468C /* UITextView+RegistrationForUndoManager.swift in Sources */,
 				0E98500F298A03180043468C /* AppDelegate.swift in Sources */,
+				0E98505F298FB1690043468C /* NoteEditorViewController+Undo.swift in Sources */,
+				0E985061298FB3530043468C /* NoteEditorViewController+TextViewDelegate.swift in Sources */,
+				0E985065298FB71B0043468C /* NoteEditorViewController+DeleteTabBarButton.swift in Sources */,
+				0E98505B298FAB5E0043468C /* NoteEditorViewController+FontSizePickerView.swift in Sources */,
+				0E985040298F98160043468C /* NoteEditorViewController+BarButtonForColorPicker.swift in Sources */,
 				0E985031298A20010043468C /* MainNavigator.swift in Sources */,
 				0E985011298A03180043468C /* SceneDelegate.swift in Sources */,
 			);

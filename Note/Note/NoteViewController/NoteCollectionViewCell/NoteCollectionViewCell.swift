@@ -4,11 +4,8 @@
 //
 //  Created by 1okmon on 01.02.2023.
 //
-
 import UIKit
-
 class NoteCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var BodyLabel: UILabel!

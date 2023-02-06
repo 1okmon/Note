@@ -4,15 +4,10 @@
 //
 //  Created by 1okmon on 02.02.2023.
 //
-
 import Foundation
-
-
-class Convert {
-    
+class Convertor {
     static func mutableAttributedStringToData(string: NSAttributedString) -> Data {
         var stringData = NSData()
-
         do {
             stringData = try NSKeyedArchiver.archivedData(withRootObject: string, requiringSecureCoding: false) as NSData
         } catch let err {
