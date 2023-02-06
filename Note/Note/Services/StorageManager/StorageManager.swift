@@ -53,7 +53,6 @@ extension StorageManager: NotesStorageManager {
     func getAllNotesFromUserDefaults() -> [Note] {
         let defaults = UserDefaults.standard
         let ids = defaults.stringArray(forKey: "Notes_ID") ?? [String]()
-        print(ids)
         var notes = [Note]()
         for id in ids {
             if let note = getNoteFromUserDefaults(key: id) {

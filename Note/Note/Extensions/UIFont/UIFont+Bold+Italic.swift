@@ -12,7 +12,6 @@ extension UIFont {
     }
     
     func italic() -> UIFont {
-        print(isItalic)
         return applyTraits(traits: [.traitItalic], alreadyApplied: isItalic)
     }
     
